@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +13,9 @@
             background-color: #f8f9fa;
             color: #333;
             overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
+
         .sidebar {
             height: 100vh;
             width: 250px;
@@ -23,7 +26,9 @@
             color: #fff;
             padding-top: 20px;
             transition: width 0.3s ease;
+            z-index: 1000;
         }
+
         .sidebar a {
             padding: 10px 15px;
             text-decoration: none;
@@ -32,25 +37,31 @@
             display: block;
             transition: background-color 0.3s ease;
         }
+
         .sidebar a:hover {
             background-color: #495057;
         }
+
         .sidebar .sidebar-header {
             font-size: 24px;
             text-align: center;
             margin-bottom: 20px;
         }
+
         .main-content {
             margin-left: 250px;
             padding: 20px;
             transition: margin-left 0.3s ease;
         }
+
         .profile-img {
             width: 150px;
             height: 150px;
             border-radius: 50%;
             margin-bottom: 20px;
+            border: 3px solid #495057;
         }
+
         .edit-btn {
             background-color: #f35e0c;
             border: none;
@@ -61,27 +72,33 @@
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.3s ease;
         }
+
         .edit-btn:hover {
             background-color: #d1500c;
             transform: scale(1.05);
         }
+
         .animated {
             animation-duration: 0.5s;
             animation-fill-mode: both;
         }
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
+
         .fadeInUp {
             animation-name: fadeInUp;
         }
+
         /* Improved Card Styling */
         .card {
             border: none;
@@ -89,28 +106,62 @@
             overflow: hidden;
             margin-bottom: 20px;
         }
+
         /* Adjusting Card Text Colors */
         .card-body {
             color: #fff;
         }
+
         /* Responsive Styles */
         @media (max-width: 768px) {
             .sidebar {
                 width: 100%;
                 z-index: 1;
             }
+
             .main-content {
                 margin-left: 0;
             }
         }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom Theme Styles */
+        .theme-settings {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #343a40;
+            color: white;
+            padding: 10px;
+            border-radius: 10px;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .theme-settings input {
+            margin-bottom: 10px;
+            color: #495057;
+            background-color: #fff;
+            border: 1px solid #495057;
+            border-radius: 5px;
+            padding: 5px;
+        }
+
+        .theme-settings label {
+            font-size: 14px;
+        }
     </style>
 </head>
+
 <body>
     <div class="sidebar">
         <div class="sidebar-header">
             My Account
         </div>
-        <a href="index.html">Home</a>
         <a href="#profile">Profile</a>
         <a href="#subscription">Subscription</a>
         <a href="#payment">Payment</a>
@@ -152,21 +203,24 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="card mb-4 shadow-sm">
-                        <div id="subscription" class="card-body animated fadeInUp" style="background: linear-gradient(to right,  #222224, #8785a1); border-radius: 10px; color: #fff;">
+                        <div id="subscription" class="card-body animated fadeInUp"
+                            style="background: linear-gradient(to right,  #222224, #8785a1); border-radius: 10px; color: #fff;">
                             <h5 class="card-title">Subscription Details</h5>
                             <p class="card-text"><strong>Plan:</strong> Premium</p>
                             <p class="card-text"><strong>Renewal Date:</strong> January 1, 2025</p>
                         </div>
                     </div>
                     <div class="card mb-4 shadow-sm">
-                        <div id="security" class="card-body animated fadeInUp" style="background: linear-gradient(to right,  #222224, #8785a1); border-radius: 10px; color: #fff;">
+                        <div id="security" class="card-body animated fadeInUp"
+                            style="background: linear-gradient(to right,  #222224, #8785a1); border-radius: 10px; color: #fff;">
                             <h5 class="card-title">Security Settings</h5>
                             <p class="card-text"><strong>Password:</strong> ********</p>
                             <p class="card-text"><strong>Two-Factor Authentication:</strong> Enabled</p>
                         </div>
                     </div>
                     <div class="card shadow-sm">
-                        <div id="notifications" class="card-body animated fadeInUp" style="background: linear-gradient(to right,  #222224, #8785a1); border-radius: 10px; color: #fff;">
+                        <div id="notifications" class="card-body animated fadeInUp"
+                            style="background: linear-gradient(to right,  #222224, #8785a1); border-radius: 10px; color: #fff;">
                             <h5 class="card-title">Notification Settings</h5>
                             <p class="card-text"><strong>Email Notifications:</strong> Enabled</p>
                             <p class="card-text"><strong>Push Notifications:</strong> Enabled</p>
@@ -175,52 +229,102 @@
                 </div>
                 <div class="col-md-6">
                     <div class="card mb-4 shadow-sm">
-                        <div id="payment" class="card-body animated fadeInUp" style="background: linear-gradient(to right,  #222224, #8785a1); border-radius: 10px; color: #fff;">
+                        <div id="payment" class="card-body animated fadeInUp"
+                            style="background: linear-gradient(to right,  #222224, #8785a1); border-radius: 10px; color: #fff;">
                             <h5 class="card-title">Payment Information</h5>
                             <p class="card-text"><strong>Payment Method:</strong> Visa ending in 1234</p>
                         </div>
                     </div>
                     <div class="card mb-4 shadow-sm">
-                        <div id="privacy" class="card-body animated fadeInUp" style="background: linear-gradient(to right,  #222224, #8785a1); border-radius: 10px; color: #fff;">
+                        <div id="privacy" class="card-body animated fadeInUp"
+                            style="background: linear-gradient(to right,  #222224, #8785a1); border-radius: 10px; color: #fff;">
                             <h5 class="card-title">Privacy Settings</h5>
                             <p class="card-text"><strong>Public Profile:</strong> Visible to everyone</p>
                             <p class="card-text"><strong>Activity Log:</strong> Visible to friends only</p>
                         </div>
                     </div>
                     <div class="card shadow-sm">
-                        <div id="social" class="card-body animated fadeInUp" style="background: linear-gradient(to right, #222224, #8785a1); border-radius: 10px; color: #fff;">
-                            <h5 class="card-title">Social Media Accounts</h5>
-                            <p class="card-text"><strong>Linked Accounts:</strong> Facebook, Twitter, Instagram</p>
+                        <div id="social" class="card-body animated fadeInUp"
+                            style="background: linear-gradient(to right,  #222224, #8785a1); border-radius: 10px; color: #fff;">
+                            <h5 class="card-title">Connected Social Media</h5>
+                            <p class="card-text"><strong>Facebook:</strong> Connected</p>
+                            <p class="card-text"><strong>Twitter:</strong> Connected</p>
+                            <p class="card-text"><strong>Instagram:</strong> Connected</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
+        <div id="orders" class="animated fadeInUp">
+            <h2>Order History</h2>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Date</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1001</td>
+                            <td>August 1, 2024</td>
+                            <td>$50.00</td>
+                            <td>Completed</td>
+                            <td><button class="edit-btn">View Details</button></td>
+                        </tr>
+                        <tr>
+                            <td>1002</td>
+                            <td>August 10, 2024</td>
+                            <td>$75.00</td>
+                            <td>Processing</td>
+                            <td><button class="edit-btn">View Details</button></td>
+                        </tr>
+                        <tr>
+                            <td>1003</td>
+                            <td>August 15, 2024</td>
+                            <td>$100.00</td>
+                            <td>Cancelled</td>
+                            <td><button class="edit-btn">View Details</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="theme-settings">
+        <h5>Theme Customization</h5>
+        <label for="bgColorInput">Background Color:</label>
+        <input type="color" id="bgColorInput" value="#f8f9fa">
+        <label for="textColorInput">Text Color:</label>
+        <input type="color" id="textColorInput" value="#333">
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        document.getElementById('editProfileForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-       
-            const profileImageInput = document.getElementById('profileImageInput');
-            if (profileImageInput.files && profileImageInput.files[0]) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    document.getElementById('profileImage').src = e.target.result;
-                }
-                reader.readAsDataURL(profileImageInput.files[0]);
-            }
+        document.getElementById('profileImageInput').addEventListener('change', function (e) {
+            const reader = new FileReader();
+            reader.onload = function (event) {
+                document.getElementById('profileImage').src = event.target.result;
+            };
+            reader.readAsDataURL(e.target.files[0]);
+        });
 
-   
-            const bgColorInput = document.getElementById('bgColorInput').value;
-            document.body.style.backgroundColor = bgColorInput;
+        // Theme customization script
+        document.getElementById('bgColorInput').addEventListener('input', function () {
+            document.body.style.backgroundColor = this.value;
+        });
 
-            // Update text color
-            const textColorInput = document.getElementById('textColorInput').value;
-            document.body.style.color = textColorInput;
+        document.getElementById('textColorInput').addEventListener('input', function () {
+            document.body.style.color = this.value;
         });
     </script>
 </body>
+
 </html>
