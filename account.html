@@ -179,90 +179,23 @@
                     </div>
                     <div class="mb-3">
                         <label for="nameInput" class="form-label">Name</label>
-                        <input type="text" class="form-control" id="nameInput">
+                        <input type="text" class="form-control" id="nameInput" placeholder="Enter your name">
                     </div>
                     <div class="mb-3">
                         <label for="emailInput" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="emailInput">
+                        <input type="email" class="form-control" id="emailInput" placeholder="Enter your email">
                     </div>
                     <div class="mb-3">
                         <label for="addressInput" class="form-label">Address</label>
-                        <input type="text" class="form-control" id="addressInput">
+                        <input type="text" class="form-control" id="addressInput" placeholder="Enter your address">
                     </div>
                     <button type="submit" class="btn btn-primary">Save Changes</button>
                 </form>
             </div>
         </div>
 
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="card mb-4 shadow-sm">
-                        <div id="subscription" class="card-body animated fadeInUp"
-                            style="background: linear-gradient(to right, #222224, #8785a1); border-radius: 10px; color: #fff;">
-                            <h5 class="card-title">Subscription Details</h5>
-                            <p class="card-text"><strong>Plan:</strong> <input type="text" class="form-control" id="subscriptionPlan"></p>
-                            <p class="card-text"><strong>Renewal Date:</strong> <input type="date" class="form-control" id="renewalDate"></p>
-                        </div>
-                    </div>
-                    <div class="card mb-4 shadow-sm">
-                        <div id="security" class="card-body animated fadeInUp"
-                            style="background: linear-gradient(to right, #222224, #8785a1); border-radius: 10px; color: #fff;">
-                            <h5 class="card-title">Security Settings</h5>
-                            <p class="card-text"><strong>Password:</strong> <input type="password" class="form-control" id="password"></p>
-                            <p class="card-text"><strong>Two-Factor Authentication:</strong> <select class="form-select" id="twoFactorAuth">
-                                <option value="enabled">Enabled</option>
-                                <option value="disabled">Disabled</option>
-                            </select></p>
-                        </div>
-                    </div>
-                    <div class="card shadow-sm">
-                        <div id="notifications" class="card-body animated fadeInUp"
-                            style="background: linear-gradient(to right, #222224, #8785a1); border-radius: 10px; color: #fff;">
-                            <h5 class="card-title">Notification Settings</h5>
-                            <p class="card-text"><strong>Email Notifications:</strong> <select class="form-select" id="emailNotifications">
-                                <option value="enabled">Enabled</option>
-                                <option value="disabled">Disabled</option>
-                            </select></p>
-                            <p class="card-text"><strong>Push Notifications:</strong> <select class="form-select" id="pushNotifications">
-                                <option value="enabled">Enabled</option>
-                                <option value="disabled">Disabled</option>
-                            </select></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card mb-4 shadow-sm">
-                        <div id="payment" class="card-body animated fadeInUp"
-                            style="background: linear-gradient(to right, #222224, #8785a1); border-radius: 10px; color: #fff;">
-                            <h5 class="card-title">Payment Information</h5>
-                            <p class="card-text"><strong>Payment Method:</strong> <input type="text" class="form-control" id="paymentMethod"></p>
-                        </div>
-                    </div>
-                    <div class="card mb-4 shadow-sm">
-                        <div id="privacy" class="card-body animated fadeInUp"
-                            style="background: linear-gradient(to right, #222224, #8785a1); border-radius: 10px; color: #fff;">
-                            <h5 class="card-title">Privacy Settings</h5>
-                            <p class="card-text"><strong>Public Profile:</strong> <select class="form-select" id="publicProfile">
-                                <option value="visible">Visible to everyone</option>
-                                <option value="hidden">Hidden</option>
-                            </select></p>
-                            <p class="card-text"><strong>Activity Log:</strong> <select class="form-select" id="activityLog">
-                                <option value="friends">Visible to friends only</option>
-                                <option value="public">Visible to everyone</option>
-                            </select></p>
-                        </div>
-                    </div>
-                    <div class="card shadow-sm">
-                        <div id="social" class="card-body animated fadeInUp"
-                            style="background: linear-gradient(to right, #222224, #8785a1); border-radius: 10px; color: #fff;">
-                            <h5 class="card-title">Social Media Connections</h5>
-                            <p class="card-text"><strong>Linked Accounts:</strong> <input type="text" class="form-control" id="linkedAccounts"></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <!-- Your existing sections -->
+
     </div>
 
     <div class="theme-settings">
@@ -273,7 +206,57 @@
         <input type="color" id="textColor" value="#333">
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        // Function to save profile details to local storage
+        function saveProfileDetails() {
+            const name = document.getElementById('nameInput').value;
+            const email = document.getElementById('emailInput').value;
+            const address = document.getElementById('addressInput').value;
+            const profileImage = document.getElementById('profileImage').src;
+
+            const userProfile = {
+                name: name,
+                email: email,
+                address: address,
+                profileImage: profileImage
+            };
+
+            localStorage.setItem('userProfile', JSON.stringify(userProfile));
+            alert('Profile details saved!');
+        }
+
+        // Function to load profile details from local storage
+        function loadProfileDetails() {
+            const savedProfile = localStorage.getItem('userProfile');
+            if (savedProfile) {
+                const userProfile = JSON.parse(savedProfile);
+                document.getElementById('nameInput').value = userProfile.name;
+                document.getElementById('emailInput').value = userProfile.email;
+                document.getElementById('addressInput').value = userProfile.address;
+                document.getElementById('profileImage').src = userProfile.profileImage;
+            }
+        }
+
+        // Load profile details on page load
+        window.onload = loadProfileDetails;
+
+        // Save profile details on form submission
+        document.getElementById('editProfileForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+            saveProfileDetails();
+        });
+
+        // Function to update profile image preview
+        document.getElementById('profileImageInput').addEventListener('change', function (e) {
+            const reader = new FileReader();
+            reader.onload = function (event) {
+                document.getElementById('profileImage').src = event.target.result;
+            };
+            reader.readAsDataURL(e.target.files[0]);
+        });
+
+        // Theme customization script
         document.addEventListener('DOMContentLoaded', () => {
             const bgColorInput = document.getElementById('bgColor');
             const textColorInput = document.getElementById('textColor');
