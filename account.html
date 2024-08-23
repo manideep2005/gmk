@@ -179,15 +179,15 @@
                     </div>
                     <div class="mb-3">
                         <label for="nameInput" class="form-label">Name</label>
-                        <input type="text" class="form-control" id="nameInput" value="John Doe">
+                        <input type="text" class="form-control" id="nameInput">
                     </div>
                     <div class="mb-3">
                         <label for="emailInput" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="emailInput" value="john@example.com">
+                        <input type="email" class="form-control" id="emailInput">
                     </div>
                     <div class="mb-3">
                         <label for="addressInput" class="form-label">Address</label>
-                        <input type="text" class="form-control" id="addressInput" value="123 Main Street, City, Country">
+                        <input type="text" class="form-control" id="addressInput">
                     </div>
                     <button type="submit" class="btn btn-primary">Save Changes</button>
                 </form>
@@ -199,97 +199,109 @@
                 <div class="col-md-6">
                     <div class="card mb-4 shadow-sm">
                         <div id="subscription" class="card-body animated fadeInUp"
-                            style="background: linear-gradient(to right,  #222224, #8785a1); border-radius: 10px; color: #fff;">
+                            style="background: linear-gradient(to right, #222224, #8785a1); border-radius: 10px; color: #fff;">
                             <h5 class="card-title">Subscription Details</h5>
-                            <p class="card-text"><strong>Plan:</strong> Premium</p>
-                            <p class="card-text"><strong>Renewal Date:</strong> January 1, 2025</p>
+                            <p class="card-text"><strong>Plan:</strong> <input type="text" class="form-control" id="subscriptionPlan"></p>
+                            <p class="card-text"><strong>Renewal Date:</strong> <input type="date" class="form-control" id="renewalDate"></p>
                         </div>
                     </div>
                     <div class="card mb-4 shadow-sm">
                         <div id="security" class="card-body animated fadeInUp"
-                            style="background: linear-gradient(to right,  #222224, #8785a1); border-radius: 10px; color: #fff;">
+                            style="background: linear-gradient(to right, #222224, #8785a1); border-radius: 10px; color: #fff;">
                             <h5 class="card-title">Security Settings</h5>
-                            <p class="card-text"><strong>Password:</strong> ********</p>
-                            <p class="card-text"><strong>Two-Factor Authentication:</strong> Enabled</p>
+                            <p class="card-text"><strong>Password:</strong> <input type="password" class="form-control" id="password"></p>
+                            <p class="card-text"><strong>Two-Factor Authentication:</strong> <select class="form-select" id="twoFactorAuth">
+                                <option value="enabled">Enabled</option>
+                                <option value="disabled">Disabled</option>
+                            </select></p>
                         </div>
                     </div>
                     <div class="card shadow-sm">
                         <div id="notifications" class="card-body animated fadeInUp"
-                            style="background: linear-gradient(to right,  #222224, #8785a1); border-radius: 10px; color: #fff;">
+                            style="background: linear-gradient(to right, #222224, #8785a1); border-radius: 10px; color: #fff;">
                             <h5 class="card-title">Notification Settings</h5>
-                            <p class="card-text"><strong>Email Notifications:</strong> Enabled</p>
-                            <p class="card-text"><strong>Push Notifications:</strong> Enabled</p>
+                            <p class="card-text"><strong>Email Notifications:</strong> <select class="form-select" id="emailNotifications">
+                                <option value="enabled">Enabled</option>
+                                <option value="disabled">Disabled</option>
+                            </select></p>
+                            <p class="card-text"><strong>Push Notifications:</strong> <select class="form-select" id="pushNotifications">
+                                <option value="enabled">Enabled</option>
+                                <option value="disabled">Disabled</option>
+                            </select></p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="card mb-4 shadow-sm">
                         <div id="payment" class="card-body animated fadeInUp"
-                            style="background: linear-gradient(to right,  #222224, #8785a1); border-radius: 10px; color: #fff;">
+                            style="background: linear-gradient(to right, #222224, #8785a1); border-radius: 10px; color: #fff;">
                             <h5 class="card-title">Payment Information</h5>
-                            <p class="card-text"><strong>Payment Method:</strong> Visa ending in 1234</p>
+                            <p class="card-text"><strong>Payment Method:</strong> <input type="text" class="form-control" id="paymentMethod"></p>
                         </div>
                     </div>
                     <div class="card mb-4 shadow-sm">
                         <div id="privacy" class="card-body animated fadeInUp"
-                            style="background: linear-gradient(to right,  #222224, #8785a1); border-radius: 10px; color: #fff;">
+                            style="background: linear-gradient(to right, #222224, #8785a1); border-radius: 10px; color: #fff;">
                             <h5 class="card-title">Privacy Settings</h5>
-                            <p class="card-text"><strong>Public Profile:</strong> Visible to everyone</p>
-                            <p class="card-text"><strong>Activity Log:</strong> Visible to friends only</p>
+                            <p class="card-text"><strong>Public Profile:</strong> <select class="form-select" id="publicProfile">
+                                <option value="visible">Visible to everyone</option>
+                                <option value="hidden">Hidden</option>
+                            </select></p>
+                            <p class="card-text"><strong>Activity Log:</strong> <select class="form-select" id="activityLog">
+                                <option value="friends">Visible to friends only</option>
+                                <option value="public">Visible to everyone</option>
+                            </select></p>
                         </div>
                     </div>
                     <div class="card shadow-sm">
                         <div id="social" class="card-body animated fadeInUp"
-                            style="background: linear-gradient(to right,  #222224, #8785a1); border-radius: 10px; color: #fff;">
+                            style="background: linear-gradient(to right, #222224, #8785a1); border-radius: 10px; color: #fff;">
                             <h5 class="card-title">Social Media Connections</h5>
-                            <p class="card-text"><strong>Linked Accounts:</strong> Facebook, Twitter, Instagram</p>
+                            <p class="card-text"><strong>Linked Accounts:</strong> <input type="text" class="form-control" id="linkedAccounts"></p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="container">
-            <div class="card mb-4 shadow-sm">
-                <div id="orders" class="card-body animated fadeInUp"
-                    style="background: linear-gradient(to right,  #222224, #8785a1); border-radius: 10px; color: #fff;">
-                    <h5 class="card-title">Order History</h5>
-                    <p class="card-text"><strong>Last Order:</strong> August 22, 2024</p>
-                    <p class="card-text"><strong>Order Number:</strong> 123456789</p>
-                </div>
-            </div>
-        </div>
     </div>
 
-    <!-- Theme settings -->
     <div class="theme-settings">
         <h5>Theme Settings</h5>
-        <label for="bgColorInput">Background Color:</label>
-        <input type="color" id="bgColorInput">
-        <label for="textColorInput">Text Color:</label>
-        <input type="color" id="textColorInput">
+        <label for="bgColor">Background Color:</label>
+        <input type="color" id="bgColor" value="#f8f9fa">
+        <label for="textColor">Text Color:</label>
+        <input type="color" id="textColor" value="#333">
     </div>
 
     <script>
-        const bgColorInput = document.getElementById('bgColorInput');
-        const textColorInput = document.getElementById('textColorInput');
+        document.addEventListener('DOMContentLoaded', () => {
+            const bgColorInput = document.getElementById('bgColor');
+            const textColorInput = document.getElementById('textColor');
 
-        bgColorInput.addEventListener('input', function () {
-            document.body.style.backgroundColor = this.value;
-        });
+            // Load saved theme settings
+            const savedBgColor = localStorage.getItem('bgColor');
+            const savedTextColor = localStorage.getItem('textColor');
 
-        textColorInput.addEventListener('input', function () {
-            document.body.style.color = this.value;
-        });
+            if (savedBgColor) {
+                document.body.style.backgroundColor = savedBgColor;
+                bgColorInput.value = savedBgColor;
+            }
 
-        const profileImageInput = document.getElementById('profileImageInput');
-        const profileImage = document.getElementById('profileImage');
+            if (savedTextColor) {
+                document.body.style.color = savedTextColor;
+                textColorInput.value = savedTextColor;
+            }
 
-        profileImageInput.addEventListener('change', function (e) {
-            const reader = new FileReader();
-            reader.onload = function (e) {
-                profileImage.src = e.target.result;
-            };
-            reader.readAsDataURL(this.files[0]);
+            // Save theme settings on input change
+            bgColorInput.addEventListener('input', () => {
+                document.body.style.backgroundColor = bgColorInput.value;
+                localStorage.setItem('bgColor', bgColorInput.value);
+            });
+
+            textColorInput.addEventListener('input', () => {
+                document.body.style.color = textColorInput.value;
+                localStorage.setItem('textColor', textColorInput.value);
+            });
         });
     </script>
 </body>
