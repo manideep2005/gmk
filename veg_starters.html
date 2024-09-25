@@ -1,305 +1,272 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EGG Starters</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5; /* Light gray background */
-            background-image: url('https://cdn.jsdelivr.net/gh/saadeghi/daisyui@1.9.0/example/assets/bg-pattern-light.png'); /* Subtle pattern overlay */
-        }
-        .container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 20px;
-            background-color: #fff; /* White container background */
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-        }
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #333; 
-        }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        .starter {
-            background-color: #f9f9f9; 
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        h2 {
-            color: #ebb70e; 
-        }
-        p {
-            color: #1c1b1b; 
-        }
-        .circle-img {
-            width: 100px;
-            height: 100px;
-            border-radius: 10%;
-        }
-        .rupee-icon {
-            font-size: 20px;
-            color: #ebb70e; 
-        }
-        .counter {
-            font-size: 18px;
-            margin: 0 10px;
-            display: none;
-        }
-        .add-btn, .minus-btn, .plus-btn {
-            background-color: #ebb70e;
-            border: none;
-            color: white;
-            padding: 10px 15px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-        .add-btn:hover, .minus-btn:hover, .plus-btn:hover {
-            background-color: #d1e714;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <style>
+    body {
+      font-family: 'Dancing Script', cursive;
+      background: black;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #1f1f1f;
+      padding: 15px 30px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav .nav-left {
+      display: flex;
+      align-items: center;
+    }
+
+    nav .nav-left i {
+      color: yellow;
+      font-size: 28px;
+      margin-right: 10px;
+    }
+
+    nav .nav-left .title {
+      font-size: 30px;
+      color: yellow;
+    }
+
+    nav .nav-right {
+      display: flex;
+      align-items: center;
+    }
+
+    nav .nav-right input[type="text"] {
+      padding: 10px;
+      border-radius: 25px;
+      border: none;
+      font-size: 16px;
+      margin-right: 20px;
+      width: 300px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    nav .nav-right i {
+      font-size: 24px;
+      color: yellow;
+      margin-left: 15px;
+      cursor: pointer;
+    }
+
+    .card-container {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      padding: 40px 20px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .card {
+      position: relative;
+      width: 400px;
+      height: 300px;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease;
+      margin: 15px;
+      background-color: #fff;
+    }
+
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .card .title {
+      position: absolute;
+      top: 10px;
+      left: 15px;
+      font-size: 24px;
+      color: yellow;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+    }
+
+    .favorite-heart {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 28px;
+      color: #fff;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .favorite-heart.favorited {
+      color: red;
+    }
+
+    .card .content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .card:hover .content {
+      opacity: 1;
+    }
+
+    .card .content h3 {
+      margin: 0;
+    }
+
+    .add-button {
+      background-color: yellow;
+      color: black;
+      border: none;
+      border-radius: 5px;
+      padding: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .add-button:hover {
+      background-color: orange;
+    }
+
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="row justify-content-end mt-3 nav-links">
-            <div class="col-auto nav-links" id="searchIcon">
-                <span class="text-primary me-2"><i class="bi bi-search"></i> Search</span>
-            </div>
-            <div class="col-auto">
-                <div class="dropdown">
-                    <span class="text-primary me-2 dropdown-toggle" type="button" id="dropdownMenuButtonLight" data-bs-toggle="dropdown" aria-expanded="false">
-                        Quick Links
-                    </span>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButtonLight">
-                        <li><a class="dropdown-item" href="index.html">Home</a></li>
-                        <li><a class="dropdown-item" href="account.html">Account</a></li>
-                        <li><a class="dropdown-item" href="Signin.html">Sign in</a></li>
-                        <li><a class="dropdown-item" href="#">Sign up</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-auto nav-links">
-                <span class="text-primary me-2"><i class="bi bi-bag"></i>Cart </span>
-            </div>
-            <div class="col-auto nav-links">
-                <span class="text-primary me-2"><i class="bi bi-question"></i> Help</span>
-            </div>
-        </div>
 
-  
-          
-            <h1><style></style>Veg Starters</h1>
-            <ul class="starter-list">
-                <li class="starter">
-                    <div>
-                        <h2>Deviled Eggs</h2>
-                        <p>Hard-boiled eggs, halved and filled with a seasoned yolk mixture.</p>
-                        <div class="rupee-icon"><i class="bi bi-currency-rupee">180</i></div>
-                        <button class="minus-btn" style="display:none;">-</button>
-                        <span class="counter">0</span>
-                        <button class="plus-btn" style="display:none;">+</button>
-                        <button class="add-btn">Add</button>
-                    </div>
-                    <div>
-                        <img class="circle-img" src="deviled eggs.jpeg" alt="Deviled Eggs"> 
-                    </div>
-                </li>
-                <li class="starter">
-                    <div>
-                        <h2>Scotch Eggs</h2>
-                        <p>Boiled eggs wrapped in sausage meat, coated in breadcrumbs, and deep-fried or baked.</p>
-                        <div class="rupee-icon"><i class="bi bi-currency-rupee">180</i></div>
-                        <button class="minus-btn" style="display:none;">-</button>
-                        <span class="counter">0</span>
-                        <button class="plus-btn" style="display:none;">+</button>
-                        <button class="add-btn">Add</button>
-                    </div>
-                    <div>
-                        <img class="circle-img" src="scotch-eggs-3.jpg" alt="Scotch Eggs"> 
-                    </div>
-                </li>
-                <li class="starter">
-                    <div>
-                        <h2>Egg Pakora</h2>
-                        <p>Hard-boiled eggs dipped in a spiced chickpea flour batter and deep-fried.</p>
-                        <div class="rupee-icon"><i class="bi bi-currency-rupee">180</i></div>
-                        <button class="minus-btn" style="display:none;">-</button>
-                        <span class="counter">0</span>
-                        <button class="plus-btn" style="display:none;">+</button>
-                        <button class="add-btn">Add</button>
-                    </div>
-                    <div>
-                        <img class="circle-img" src="egg pakora.webp" alt="Egg Pakora"> 
-                    </div>
-                </li>
-                <li class="starter">
-                    <div>
-                        <h2>Spicy Egg Rolls</h2>
-                        <p>Spring rolls filled with a mixture of eggs, vegetables, and spices.</p>
-                        <div class="rupee-icon"><i class="bi bi-currency-rupee">180</i></div>
-                        <button class="minus-btn" style="display:none;">-</button>
-                        <span class="counter">0</span>
-                        <button class="plus-btn" style="display:none;">+</button>
-                        <button class="add-btn">Add</button>
-                    </div>
-                    <div>
-                        <img class="circle-img" src="egg rolls.jpeg" alt="Spicy Egg Rolls"> 
-                    </div>
-                </li>
-                <li class="starter">
-                    <div>
-                        <h2>Masala Omelette Bites</h2>
-                        <p>Small, spiced omelettes cut into bite-sized pieces.</p>
-                        <div class="rupee-icon"><i class="bi bi-currency-rupee">180</i></div>
-                        <button class="minus-btn" style="display:none;">-</button>
-                        <span class="counter">0</span>
-                        <button class="plus-btn" style="display:none;">+</button>
-                        <button class="add-btn">Add</button>
-                    </div>
-                    <div>
-                        <img class="circle-img" src="masala omlette bites.jpeg" alt="Masala Omelette Bites"> 
-                    </div>
-                </li>
-                <li class="starter">
-                    <div>
-                        <h2>Stuffed Eggs</h2>
-                        <p>Hard-boiled eggs halved and filled with various mixtures like tuna, crab, or avocado.</p>
-                        <div class="rupee-icon"><i class="bi bi-currency-rupee">180</i></div>
-                        <button class="minus-btn" style="display:none;">-</button>
-                        <span class="counter">0</span>
-                        <button class="plus-btn" style="display:none;">+</button>
-                        <button class="add-btn">Add</button>
-                    </div>
-                    <div>
-                        <img class="circle-img" src="stuffed eggs.jpeg" alt="Stuffed Eggs"> 
-                    </div>
-                </li>
-                <li class="starter">
-                    <div>
-                        <h2>Egg Chaat</h2>
-                        <p>Hard-boiled eggs topped with a tangy and spicy mixture of onions, tomatoes, coriander, and chutneys.</p>
-                        <div class="rupee-icon"><i class="bi bi-currency-rupee">180</i></div>
-                        <button class="minus-btn" style="display:none;">-</button>
-                        <span class="counter">0</span>
-                        <button class="plus-btn" style="display:none;">+</button>
-                        <button class="add-btn">Add</button>
-                    </div>
-                    <div>
-                        <img class="circle-img" src="egg_chaat.jpeg" alt="Egg Chaat"> 
-                    </div>
-                </li>
-                <li class="starter">
-                    <div>
-                        <h2>Egg Canapés</h2>
-                        <p>Small, decorative appetizers featuring slices of boiled egg on bread or crackers, garnished with toppings like smoked salmon or caviar.</p>
-                        <div class="rupee-icon"><i class="bi bi-currency-rupee">180</i></div>
-                        <button class="minus-btn" style="display:none;">-</button>
-                        <span class="counter">0</span>
-                        <button class="plus-btn" style="display:none;">+</button>
-                        <button class="add-btn">Add</button>
-                    </div>
-                    <div>
-                        <img class="circle-img" src="egg_canapes.jpeg" alt="Egg Canapés"> 
-                    </div>
-                </li>
-                <li class="starter">
-                    <div>
-                        <h2>Egg Salad</h2>
-                        <p>Chopped hard-boiled eggs mixed with mayonnaise, mustard, and various seasonings, often served on crackers or toast.</p>
-                        <div class="rupee-icon"><i class="bi bi-currency-rupee">180</i></div>
-                        <button class="minus-btn" style="display:none;">-</button>
-                        <span class="counter">0</span>
-                        <button class="plus-btn" style="display:none;">+</button>
-                        <button class="add-btn">Add</button>
-                    </div>
-                    <div>
-                        <img class="circle-img" src="egg_salad.jpeg" alt="Egg Salad"> 
-                    </div>
-                </li>
-                <li class="starter">
-                    <div>
-                        <h2>Egg Kebabs</h2>
-                        <p>Minced meat mixed with spices and boiled eggs, shaped onto skewers and grilled.</p>
-                        <div class="rupee-icon"><i class="bi bi-currency-rupee">180</i></div>
-                        <button class="minus-btn" style="display:none;">-</button>
-                        <span class="counter">0</span>
-                        <button class="plus-btn" style="display:none;">+</button>
-                        <button class="add-btn">Add</button>
-                    </div>
-                    <div>
-                        <img class="circle-img" src="egg_kebabs.jpeg" alt="Egg Kebabs"> 
-                    </div>
-                </li>
-            </ul>
-        </div>
-        </ul>
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="nav-left">
+      <span class="title">GMK Restaurant</span>
     </div>
-        </ul>
+    <div class="nav-right">
+      <input type="text" id="searchInput" placeholder="Search dishes...">
+      <i class="fas fa-search"></i>
+      <i class="fas fa-shopping-cart"></i>
+      <i class="fas fa-user"></i>
+    </div>
+  </nav>
+
+  <!-- Card Container -->
+  <div class="card-container">
+    <div class="card">
+      <img src="photos/chicken curry.webp" alt="Chicken Curry">
+      <div class="title">Chicken Curry</div>
+      <i class="favorite-heart far fa-heart"></i>
+      <div class="content">
+        <h3>Price: $15</h3>
+        <p>Amazing taste, fresh ingredients.</p>
+        <button class="add-button">Add to Cart</button>
+      </div>
     </div>
 
-    <script>
-        function updateCounter(event, increment) {
-            var parentLi = event.target.closest('.starter');
-            var counterElement = parentLi.querySelector('.counter');
-            var count = parseInt(counterElement.textContent);
-            count += increment;
-            count = Math.max(0, count);
-            counterElement.textContent = count;
-            var addButton = parentLi.querySelector('.add-btn');
-            var minusButton = parentLi.querySelector('.minus-btn');
-            var plusButton = parentLi.querySelector('.plus-btn');
-            if (count > 0) {
-                addButton.style.display = 'none';
-                minusButton.style.display = 'inline-block';
-                plusButton.style.display = 'inline-block';
-                counterElement.style.display = 'inline-block';
-            } else {
-                addButton.style.display = 'inline-block';
-                minusButton.style.display = 'none';
-                plusButton.style.display = 'none';
-                counterElement.style.display = 'none';
-            }
-        }
+    <div class="card">
+      <img src="photos/egg curry.jpeg" alt="Egg Curry">
+      <div class="title">Egg Curry</div>
+      <i class="favorite-heart far fa-heart"></i>
+      <div class="content">
+        <h3>Price: $18</h3>
+        <p>Delicious and nutritious.</p>
+        <button class="add-button">Add to Cart</button>
+      </div>
+    </div>
 
-        document.querySelectorAll('.plus-btn').forEach(function(button) {
-            button.addEventListener('click', function(event) {
-                updateCounter(event, 1);
-            });
-        });
+    <div class="card">
+      <img src="photos/breads1.avif" alt="Paneer Tikka">
+      <div class="title">Paneer Tikka</div>
+      <i class="favorite-heart far fa-heart"></i>
+      <div class="content">
+        <h3>Price: $20</h3>
+        <p>Rich flavors, cooked to perfection.</p>
+        <button class="add-button">Add to Cart</button>
+      </div>
+    </div>
 
-        document.querySelectorAll('.minus-btn').forEach(function(button) {
-            button.addEventListener('click', function(event) {
-                updateCounter(event, -1);
-            });
-        });
+    <!-- Adding another row of cards with the same padding -->
+    <div class="card">
+      <img src="photos/deviled eggs.jpeg" alt="Chicken Curry">
+      <div class="title">Chicken Curry</div>
+      <i class="favorite-heart far fa-heart"></i>
+      <div class="content">
+        <h3>Price: $15</h3>
+        <p>Amazing taste, fresh ingredients.</p>
+        <button class="add-button">Add to Cart</button>
+      </div>
+    </div>
 
-        document.querySelectorAll('.add-btn').forEach(function(button) {
-            button.addEventListener('click', function(event) {
-                updateCounter(event, 1);
-            });
-        });
-    </script>
+    <div class="card">
+      <img src="photos/egg starters.jpeg" alt="Egg Curry">
+      <div class="title">Egg Curry</div>
+      <i class="favorite-heart far fa-heart"></i>
+      <div class="content">
+        <h3>Price: $18</h3>
+        <p>Delicious and nutritious.</p>
+        <button class="add-button">Add to Cart</button>
+      </div>
+    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <div class="card">
+      <img src="photos/fish biriyani.jpeg" alt="Paneer Tikka">
+      <div class="title">Paneer Tikka</div>
+      <i class="favorite-heart far fa-heart"></i>
+      <div class="content">
+        <h3>Price: $20</h3>
+        <p>Rich flavors, cooked to perfection.</p>
+        <button class="add-button">Add to Cart</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // Favorite Heart Functionality
+    const hearts = document.querySelectorAll('.favorite-heart');
+    hearts.forEach(heart => {
+      heart.addEventListener('click', function () {
+        heart.classList.toggle('favorited');
+      });
+    });
+
+    // Search Functionality
+    const searchInput = document.getElementById('searchInput');
+    const cards = document.querySelectorAll('.card');
+
+    searchInput.addEventListener('keyup', function () {
+      const query = searchInput.value.toLowerCase();
+      cards.forEach(card => {
+        const title = card.querySelector('.title').textContent.toLowerCase();
+        card.style.display = title.includes(query) ? 'block' : 'none';
+      });
+    });
+
+    // Add to Cart Button Functionality
+    const addButtons = document.querySelectorAll('.add-button');
+    addButtons.forEach(button => {
+      button.addEventListener('click', function () {
+        alert(`${this.parentElement.parentElement.querySelector('.title').textContent} added to cart!`);
+      });
+    });
+  </script>
+
 </body>
 </html>
